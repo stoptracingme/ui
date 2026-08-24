@@ -1440,123 +1440,123 @@ local Library do
         
         if LowerName == "preset" then
             ThemeColors = {
-                ["Background"] = FromRGB(18, 18, 18),
-                ["Border"] = FromRGB(30, 30, 30),
-                ["Inline"] = FromRGB(22, 22, 22),
-                ["Hovered Element"] = FromRGB(28, 28, 28),
-                ["Page Background"] = FromRGB(16, 16, 16),
-                ["Outline"] = FromRGB(40, 40, 40),
-                ["Element"] = FromRGB(24, 24, 24),
+                ["Background"] = FromRGB(12, 12, 12),
+                ["Border"] = FromRGB(25, 25, 25),
+                ["Inline"] = FromRGB(18, 18, 18),
+                ["Hovered Element"] = FromRGB(35, 35, 35),
+                ["Page Background"] = FromRGB(10, 10, 10),
+                ["Outline"] = FromRGB(35, 35, 35),
+                ["Element"] = FromRGB(20, 20, 20),
                 ["Gradient"] = FromRGB(255, 255, 255),
                 ["Text"] = FromRGB(240, 240, 240),
                 ["Text Stroke"] = FromRGB(0, 0, 0),
-                ["Placeholder Text"] = FromRGB(150, 150, 150),
-                ["Accent"] = FromRGB(210, 180, 80)
+                ["Placeholder Text"] = FromRGB(110, 110, 110),
+                ["Accent"] = FromRGB(255, 255, 255)
             }
         elseif LowerName == "ice" then
             ThemeColors = {
-                ["Background"] = FromRGB(16, 18, 22),
-                ["Border"] = FromRGB(26, 30, 38),
-                ["Inline"] = FromRGB(20, 23, 29),
-                ["Hovered Element"] = FromRGB(26, 31, 40),
-                ["Page Background"] = FromRGB(14, 15, 18),
-                ["Outline"] = FromRGB(35, 42, 53),
-                ["Element"] = FromRGB(22, 26, 33),
-                ["Gradient"] = FromRGB(255, 255, 255),
-                ["Text"] = FromRGB(240, 245, 255),
+                ["Background"] = FromRGB(10, 14, 18),
+                ["Border"] = FromRGB(20, 28, 38),
+                ["Inline"] = FromRGB(14, 20, 28),
+                ["Hovered Element"] = FromRGB(30, 45, 60),
+                ["Page Background"] = FromRGB(8, 12, 16),
+                ["Outline"] = FromRGB(30, 42, 58),
+                ["Element"] = FromRGB(16, 24, 34),
+                ["Gradient"] = FromRGB(130, 200, 255),
+                ["Text"] = FromRGB(220, 240, 255),
                 ["Text Stroke"] = FromRGB(0, 0, 0),
-                ["Placeholder Text"] = FromRGB(140, 150, 165),
-                ["Accent"] = FromRGB(140, 220, 255)
+                ["Placeholder Text"] = FromRGB(90, 120, 150),
+                ["Accent"] = FromRGB(100, 185, 255)
             }
         elseif LowerName == "valedo" then
             ThemeColors = {
-                ["Background"] = FromRGB(18, 16, 20),
-                ["Border"] = FromRGB(30, 26, 34),
-                ["Inline"] = FromRGB(22, 20, 25),
-                ["Hovered Element"] = FromRGB(30, 26, 35),
-                ["Page Background"] = FromRGB(15, 14, 17),
-                ["Outline"] = FromRGB(42, 36, 48),
-                ["Element"] = FromRGB(25, 22, 29),
-                ["Gradient"] = FromRGB(255, 255, 255),
-                ["Text"] = FromRGB(240, 235, 245),
+                ["Background"] = FromRGB(14, 12, 18),
+                ["Border"] = FromRGB(28, 22, 38),
+                ["Inline"] = FromRGB(20, 16, 28),
+                ["Hovered Element"] = FromRGB(42, 32, 60),
+                ["Page Background"] = FromRGB(10, 8, 14),
+                ["Outline"] = FromRGB(40, 30, 56),
+                ["Element"] = FromRGB(22, 18, 32),
+                ["Gradient"] = FromRGB(180, 130, 255),
+                ["Text"] = FromRGB(235, 225, 250),
                 ["Text Stroke"] = FromRGB(0, 0, 0),
-                ["Placeholder Text"] = FromRGB(150, 140, 160),
-                ["Accent"] = FromRGB(180, 140, 255)
+                ["Placeholder Text"] = FromRGB(120, 100, 150),
+                ["Accent"] = FromRGB(160, 110, 245)
             }
         elseif LowerName == "classic" then
             ThemeColors = {
-                ["Background"] = FromRGB(22, 22, 22),
-                ["Border"] = FromRGB(35, 35, 35),
-                ["Inline"] = FromRGB(26, 26, 26),
-                ["Hovered Element"] = FromRGB(34, 34, 34),
-                ["Page Background"] = FromRGB(18, 18, 18),
-                ["Outline"] = FromRGB(48, 48, 48),
-                ["Element"] = FromRGB(28, 28, 28),
-                ["Gradient"] = FromRGB(255, 255, 255),
-                ["Text"] = FromRGB(245, 245, 245),
+                ["Background"] = FromRGB(18, 18, 18),
+                ["Border"] = FromRGB(30, 30, 30),
+                ["Inline"] = FromRGB(22, 22, 22),
+                ["Hovered Element"] = FromRGB(40, 40, 40),
+                ["Page Background"] = FromRGB(14, 14, 14),
+                ["Outline"] = FromRGB(38, 38, 38),
+                ["Element"] = FromRGB(24, 24, 24),
+                ["Gradient"] = FromRGB(210, 180, 80),
+                ["Text"] = FromRGB(235, 235, 235),
                 ["Text Stroke"] = FromRGB(0, 0, 0),
-                ["Placeholder Text"] = FromRGB(155, 155, 155),
-                ["Accent"] = FromRGB(70, 130, 180)
+                ["Placeholder Text"] = FromRGB(120, 120, 120),
+                ["Accent"] = FromRGB(210, 180, 80)
             }
         elseif LowerName == "sunset" then
             ThemeColors = {
-                ["Background"] = FromRGB(20, 17, 16),
-                ["Border"] = FromRGB(33, 28, 26),
-                ["Inline"] = FromRGB(24, 21, 19),
-                ["Hovered Element"] = FromRGB(32, 28, 25),
-                ["Page Background"] = FromRGB(17, 15, 14),
-                ["Outline"] = FromRGB(46, 38, 35),
-                ["Element"] = FromRGB(27, 23, 21),
-                ["Gradient"] = FromRGB(255, 255, 255),
-                ["Text"] = FromRGB(245, 240, 235),
+                ["Background"] = FromRGB(16, 12, 12),
+                ["Border"] = FromRGB(32, 20, 20),
+                ["Inline"] = FromRGB(22, 15, 15),
+                ["Hovered Element"] = FromRGB(48, 28, 28),
+                ["Page Background"] = FromRGB(12, 8, 8),
+                ["Outline"] = FromRGB(44, 26, 26),
+                ["Element"] = FromRGB(26, 18, 18),
+                ["Gradient"] = FromRGB(255, 140, 70),
+                ["Text"] = FromRGB(250, 230, 220),
                 ["Text Stroke"] = FromRGB(0, 0, 0),
-                ["Placeholder Text"] = FromRGB(160, 150, 140),
-                ["Accent"] = FromRGB(255, 120, 70)
+                ["Placeholder Text"] = FromRGB(150, 100, 90),
+                ["Accent"] = FromRGB(255, 110, 60)
             }
         elseif LowerName == "moonshine" then
             ThemeColors = {
-                ["Background"] = FromRGB(19, 19, 17),
-                ["Border"] = FromRGB(32, 32, 28),
-                ["Inline"] = FromRGB(23, 23, 20),
-                ["Hovered Element"] = FromRGB(31, 31, 27),
-                ["Page Background"] = FromRGB(16, 16, 14),
-                ["Outline"] = FromRGB(45, 45, 39),
-                ["Element"] = FromRGB(26, 26, 23),
-                ["Gradient"] = FromRGB(255, 255, 255),
-                ["Text"] = FromRGB(245, 245, 240),
+                ["Background"] = FromRGB(12, 16, 14),
+                ["Border"] = FromRGB(22, 32, 28),
+                ["Inline"] = FromRGB(16, 24, 20),
+                ["Hovered Element"] = FromRGB(32, 50, 42),
+                ["Page Background"] = FromRGB(8, 12, 10),
+                ["Outline"] = FromRGB(30, 46, 38),
+                ["Element"] = FromRGB(18, 28, 24),
+                ["Gradient"] = FromRGB(120, 230, 180),
+                ["Text"] = FromRGB(220, 245, 235),
                 ["Text Stroke"] = FromRGB(0, 0, 0),
-                ["Placeholder Text"] = FromRGB(160, 160, 150),
-                ["Accent"] = FromRGB(255, 230, 150)
+                ["Placeholder Text"] = FromRGB(90, 140, 120),
+                ["Accent"] = FromRGB(90, 215, 160)
             }
         elseif LowerName == "ermoa" then
             ThemeColors = {
-                ["Background"] = FromRGB(16, 19, 18),
-                ["Border"] = FromRGB(27, 32, 30),
-                ["Inline"] = FromRGB(20, 24, 22),
-                ["Hovered Element"] = FromRGB(27, 32, 29),
-                ["Page Background"] = FromRGB(14, 16, 15),
-                ["Outline"] = FromRGB(38, 45, 41),
-                ["Element"] = FromRGB(22, 27, 25),
-                ["Gradient"] = FromRGB(255, 255, 255),
-                ["Text"] = FromRGB(240, 245, 242),
+                ["Background"] = FromRGB(16, 14, 10),
+                ["Border"] = FromRGB(34, 28, 18),
+                ["Inline"] = FromRGB(22, 19, 14),
+                ["Hovered Element"] = FromRGB(48, 40, 26),
+                ["Page Background"] = FromRGB(12, 10, 8),
+                ["Outline"] = FromRGB(44, 36, 22),
+                ["Element"] = FromRGB(26, 22, 16),
+                ["Gradient"] = FromRGB(230, 190, 110),
+                ["Text"] = FromRGB(245, 240, 225),
                 ["Text Stroke"] = FromRGB(0, 0, 0),
-                ["Placeholder Text"] = FromRGB(140, 155, 148),
-                ["Accent"] = FromRGB(120, 230, 180)
+                ["Placeholder Text"] = FromRGB(140, 125, 95),
+                ["Accent"] = FromRGB(220, 175, 85)
             }
         elseif LowerName == "blood" then
             ThemeColors = {
-                ["Background"] = FromRGB(19, 15, 15),
-                ["Border"] = FromRGB(32, 25, 25),
-                ["Inline"] = FromRGB(23, 19, 19),
-                ["Hovered Element"] = FromRGB(31, 25, 25),
-                ["Page Background"] = FromRGB(16, 13, 13),
-                ["Outline"] = FromRGB(45, 35, 35),
-                ["Element"] = FromRGB(26, 21, 21),
-                ["Gradient"] = FromRGB(255, 255, 255),
-                ["Text"] = FromRGB(245, 235, 235),
+                ["Background"] = FromRGB(16, 10, 10),
+                ["Border"] = FromRGB(36, 16, 16),
+                ["Inline"] = FromRGB(24, 12, 12),
+                ["Hovered Element"] = FromRGB(52, 20, 20),
+                ["Page Background"] = FromRGB(12, 6, 6),
+                ["Outline"] = FromRGB(46, 18, 18),
+                ["Element"] = FromRGB(28, 14, 14),
+                ["Gradient"] = FromRGB(245, 70, 70),
+                ["Text"] = FromRGB(250, 225, 225),
                 ["Text Stroke"] = FromRGB(0, 0, 0),
-                ["Placeholder Text"] = FromRGB(160, 140, 140),
-                ["Accent"] = FromRGB(230, 60, 60)
+                ["Placeholder Text"] = FromRGB(150, 80, 80),
+                ["Accent"] = FromRGB(230, 45, 45)
             }
         end
         
@@ -1994,77 +1994,45 @@ local Library do
                     Name = "\0",
                     FontFace = Library.Font,
                     TextColor3 = FromRGB(0, 0, 0),
-                    BorderColor3 = FromRGB(12, 12, 12),
+                    BorderColor3 = FromRGB(0, 0, 0),
                     Text = "",
                     AutoButtonColor = false,
                     BackgroundTransparency = 1,
                     Size = UDim2New(1, 0, 1, 0),
                     BorderSizePixel = 0,
-                    TextSize = 15,
-                    BackgroundColor3 = FromRGB(25, 30, 26)
-                })  Items["Inactive"]:AddToTheme({BackgroundColor3 = "Page Background", BorderColor3 = "Border"})
+                    TextSize = 13,
+                    BackgroundColor3 = FromRGB(18, 18, 18)
+                })  Items["Inactive"]:AddToTheme({BackgroundColor3 = "Background"})
 
-                Items["ButtonBorder"] = Instances:Create("UIStroke", {
+                Items["ActiveBar"] = Instances:Create("Frame", {
                     Parent = Items["Inactive"].Instance,
                     Name = "\0",
-                    Color = FromRGB(61, 60, 65),
-                    Transparency = 1,
-                    LineJoinMode = Enum.LineJoinMode.Miter,
-                    ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-                })  Items["ButtonBorder"]:AddToTheme({Color = "Outline"})
+                    AnchorPoint = Vector2New(0, 1),
+                    Position = UDim2New(0, 0, 1, 0),
+                    Size = UDim2New(1, 0, 0, 2),
+                    BorderSizePixel = 0,
+                    BackgroundTransparency = 1,
+                    BackgroundColor3 = FromRGB(255, 255, 255),
+                    ZIndex = 2
+                })  Items["ActiveBar"]:AddToTheme({BackgroundColor3 = "Accent"})
 
                 Items["Text"] = Instances:Create("TextLabel", {
                     Parent = Items["Inactive"].Instance,
                     Name = "\0",
                     FontFace = Library.Font,
-                    TextColor3 = FromRGB(235, 235, 235),
+                    TextColor3 = FromRGB(150, 150, 150),
                     BorderColor3 = FromRGB(0, 0, 0),
                     Text = Data.Name,
                     AnchorPoint = Vector2New(0.5, 0.5),
-                    Size = UDim2New(0, 0, 0, 16),
+                    Size = UDim2New(1, 0, 1, 0),
                     BackgroundTransparency = 1,
                     Position = UDim2New(0.5, 0, 0.5, 0),
                     BorderSizePixel = 0,
-                    AutomaticSize = Enum.AutomaticSize.X,
-                    TextSize = 15,
+                    TextSize = 12,
                     BackgroundColor3 = FromRGB(255, 255, 255)
-                })  Items["Text"]:AddToTheme({TextColor3 = "Text"})
+                })
 
                 Items["TextStroke"] = Items["Text"]:TextBorder()
-
-                Instances:Create("UIPadding", {
-                    Parent = Items["Text"].Instance,
-                    Name = "\0",
-                    PaddingRight = UDimNew(0, 10),
-                    PaddingLeft = UDimNew(0, 10)
-                })
-
-                Instances:Create("UIPadding", {
-                    Parent = Items["Inactive"].Instance,
-                    Name = "\0",
-                    PaddingTop = UDimNew(0, 2),
-                    PaddingLeft = UDimNew(0, 18),
-                    PaddingRight = UDimNew(0, 12)
-                })
-
-                Items["Glow"] = Instances:Create("Frame", {
-                    Parent = Items["Inactive"].Instance,
-                    Name = "\0",
-                    BackgroundTransparency = 1,
-                    Position = UDim2New(0, 0, 0, 0),
-                    BorderColor3 = FromRGB(0, 0, 0),
-                    Size = UDim2New(1, 0, 1, 0),
-                    BorderSizePixel = 0,
-                    BackgroundColor3 = FromRGB(210, 180, 80),
-                    ZIndex = 0
-                })  Items["Glow"]:AddToTheme({BackgroundColor3 = "Accent"})
-
-                Instances:Create("UIGradient", {
-                    Parent = Items["Glow"].Instance,
-                    Name = "\0",
-                    Rotation = 0,
-                    Color = RGBSequence{RGBSequenceKeypoint(0, FromRGB(210, 180, 80)), RGBSequenceKeypoint(1, FromRGB(255, 225, 140))}
-                })
 
                 Items["Page"] = Instances:Create("Frame", {
                     Parent = Data.Page.Items["Columns"].Instance,
@@ -2138,28 +2106,18 @@ local Library do
                 Items["Page"].Instance.Parent = Bool and Data.Page.Items["Columns"].Instance or Library.UnusedHolder.Instance
 
                 if SubPage.Active then
-                        Items["Inactive"]:ChangeItemTheme({BackgroundColor3 = "Hovered Element"})
-                        Items["Inactive"]:Tween(nil, {BackgroundColor3 = Library.Theme["Hovered Element"], BackgroundTransparency = 0})
-                        if Items["Liner"] then
-                            Items["Liner"]:Tween(nil, {BackgroundTransparency = 1})
-                        end
-                        Items["Glow"]:Tween(nil, {BackgroundTransparency = 0.75})
-                        if Items["GlowGradient"] then
-                            Items["GlowGradient"]:Tween(nil, {Rotation = 180})
-                        end
-                        Items["Text"]:Tween(nil, {Position = UDim2New(0.5, 0, 0.5, 0)})
-
-                        Library.CurrentPage = SubPage
-                    else
-                        Items["Inactive"]:ChangeItemTheme({BackgroundColor3 = "Element"})
-                        Items["Inactive"]:Tween(nil, {BackgroundColor3 = Library.Theme.Element, BackgroundTransparency = 0})
-                        if Items["Liner"] then
-                            Items["Liner"]:Tween(nil, {BackgroundTransparency = 1})
-                        end
-                        Items["Glow"]:Tween(nil, {BackgroundTransparency = 1})
-                        if Items["GlowGradient"] then
-                            Items["GlowGradient"]:Tween(nil, {Rotation = 0})
-                        end
+                    Items["Inactive"]:Tween(TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0.2})
+                    if Items["ActiveBar"] then
+                        Items["ActiveBar"]:Tween(TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0})
+                    end
+                    Items["Text"]:Tween(TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = FromRGB(255, 255, 255)})
+                    Library.CurrentPage = SubPage
+                else
+                    Items["Inactive"]:Tween(TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1})
+                    if Items["ActiveBar"] then
+                        Items["ActiveBar"]:Tween(TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1})
+                    end
+                    Items["Text"]:Tween(TweenInfo.new(0.18, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = FromRGB(145, 145, 145)})
                 end
 
                 local AllInstances = Items["Page"].Instance:GetDescendants()
