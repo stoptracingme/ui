@@ -6122,8 +6122,8 @@ local Library do
                     pcall(function()
                         if Library.SaveConfig then Library:SaveConfig(name) end
                         Library:Notify("Saved config: " .. tostring(name), 3)
-                        if cfgDropdown and cfgDropdown.SetValues then
-                            cfgDropdown:SetValues(getConfigs())
+                        if cfgDropdown and cfgDropdown.Refresh then
+                            cfgDropdown:Refresh(getConfigs())
                         end
                     end)
                 end
@@ -6149,8 +6149,8 @@ local Library do
                     pcall(function()
                         delfile(dir .. "/" .. name .. ".cfg")
                         Library:Notify("Deleted config: " .. tostring(name), 3)
-                        if cfgDropdown and cfgDropdown.SetValues then
-                            cfgDropdown:SetValues(getConfigs())
+                        if cfgDropdown and cfgDropdown.Refresh then
+                            cfgDropdown:Refresh(getConfigs())
                         end
                     end)
                 end
