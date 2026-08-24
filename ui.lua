@@ -6026,8 +6026,20 @@ local Library do
         end
 
         Library:Connect(UserInputService.InputBegan, function(Input)
-            local menuKey = tostring(Library.MenuKeybind)
-            if tostring(Input.KeyCode) == menuKey or tostring(Input.UserInputType) == menuKey then
+            local menuKeyRaw = Library.MenuKeybind
+            local menuKeyText = tostring(menuKeyRaw or "")
+            local menuKeyName = menuKeyText:match("^Enum%.[^.]+%.(.+)$") or menuKeyText
+            local inputKeyName = Input.KeyCode and Input.KeyCode.Name or ""
+            local inputTypeName = Input.UserInputType and Input.UserInputType.Name or ""
+            local match = false
+
+            if typeof(menuKeyRaw) == "EnumItem" then
+                match = Input.KeyCode == menuKeyRaw or Input.UserInputType == menuKeyRaw
+            else
+                match = inputKeyName == menuKeyName or inputTypeName == menuKeyName
+            end
+
+            if match then
                 Window:SetOpen(not Window.IsOpen)
             end
         end)
