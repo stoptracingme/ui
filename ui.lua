@@ -247,7 +247,7 @@ local Library do
             ["Text"] = FromRGB(220, 220, 220),
             ["Text Stroke"] = FromRGB(0, 0, 0),
             ["Placeholder Text"] = FromRGB(110, 110, 110),
-            ["Accent"] = FromRGB(140, 160, 230)
+            ["Accent"] = FromRGB(255, 215, 0)
         }
     }
 
@@ -888,14 +888,12 @@ local Library do
                 else
                     self.Holder.Instance.Visible = false
                 end
-                task.wait(0.1)
                 self.Holder.Instance:Destroy()
             end)
         end
         if self.UnusedHolder and self.UnusedHolder.Instance then
             pcall(function()
                 self.UnusedHolder.Instance.Enabled = false
-                task.wait(0.1)
                 self.UnusedHolder.Instance:Destroy()
             end)
         end
@@ -5512,13 +5510,13 @@ local Library do
                 FontFace = Library.Font,
                 TextColor3 = FromRGB(235, 235, 235),
                 BorderColor3 = FromRGB(0, 0, 0),
-                Text = Name,
+                Text = "/alterante | fps: 0 | ping: 0",
                 Position = UDim2New(0, 0, 0, 0),
                 BackgroundTransparency = 1,
                 TextXAlignment = Enum.TextXAlignment.Left,
                 BorderSizePixel = 0,
+                TextSize = 14,
                 AutomaticSize = Enum.AutomaticSize.XY,
-                TextSize = 8,
                 BackgroundColor3 = FromRGB(255, 255, 255)
             })  Items["Text"]:AddToTheme({TextColor3 = "Text"})
 
@@ -5760,12 +5758,12 @@ local Library do
                 BorderColor3 = FromRGB(0, 0, 0),
                 Text = Window.Name,
                 Name = "\0",
-                Size = UDim2New(1, -14, 0, 40),
+                Size = UDim2New(1, -14, 0, 36),
                 BackgroundTransparency = 1,
                 TextXAlignment = Enum.TextXAlignment.Center,
-                Position = UDim2New(0, 7, 0, 1),
+                Position = UDim2New(0, 7, 0, 2),
                 BorderSizePixel = 0,
-                TextSize = 28,
+                TextSize = 24,
                 BackgroundColor3 = FromRGB(255, 255, 255)
             })  Items["Title"]:AddToTheme({TextColor3 = "Text"})
 
@@ -5778,9 +5776,9 @@ local Library do
             Items["Inline"] = Instances:Create("Frame", {
                 Parent = Items["MainFrame"].Instance,
                 Name = "\0",
-                Position = UDim2New(0, 7, 0, 20),
+                Position = UDim2New(0, 7, 0, 40),
                 BorderColor3 = FromRGB(27, 27, 32),
-                Size = UDim2New(1, -14, 1, -27),
+                Size = UDim2New(1, -14, 1, -47),
                 BorderSizePixel = 2,
                 BackgroundColor3 = FromRGB(20, 20, 25)
             })  Items["Inline"]:AddToTheme({BackgroundColor3 = "Background", BorderColor3 = "Outline"})
@@ -6424,7 +6422,7 @@ local Library do
             Items["Section"] = Instances:Create("Frame", {
                 Parent = sectionParent,
                 Name = "\0",
-                Size = UDim2New(1, 0, 0, 28),
+                Size = UDim2New(1, 0, 0, 0),
                 BorderColor3 = FromRGB(42, 49, 45),
                 BorderSizePixel = 1,
                 AutomaticSize = Enum.AutomaticSize.Y,
@@ -6445,7 +6443,7 @@ local Library do
                 Position = UDim2New(0, 6, 0, 5),
                 BorderSizePixel = 0,
                 AutomaticSize = Enum.AutomaticSize.X,
-                TextSize = 9,
+                TextSize = 13,
                 BackgroundColor3 = FromRGB(255, 255, 255)
             })  Items["Text"]:AddToTheme({TextColor3 = "Text"})
 
@@ -6454,7 +6452,10 @@ local Library do
             Instances:Create("UIPadding", {
                 Parent = Items["Section"].Instance,
                 Name = "\0",
-                PaddingBottom = UDimNew(0, 8)
+                PaddingBottom = UDimNew(0, 10),
+                PaddingTop = UDimNew(0, 2),
+                PaddingLeft = UDimNew(0, 2),
+                PaddingRight = UDimNew(0, 2)
             })
 
             Items["Content"] = Instances:Create("Frame", {
@@ -6462,11 +6463,11 @@ local Library do
                 Name = "\0",
                 BorderColor3 = FromRGB(0, 0, 0),
                 BackgroundTransparency = 1,
-                Position = UDim2New(0, 10, 0, 26),
-                Size = UDim2New(1, -20, 0, 0),
+                Position = UDim2New(0, 8, 0, 24),
+                Size = UDim2New(1, -16, 0, 0),
                 BorderSizePixel = 0,
                 AutomaticSize = Enum.AutomaticSize.Y,
-                ClipsDescendants = true,
+                ClipsDescendants = false,
                 BackgroundColor3 = FromRGB(255, 255, 255)
             })
 
