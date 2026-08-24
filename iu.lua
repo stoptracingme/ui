@@ -6160,6 +6160,15 @@ local Library do
             end
         })
 
+        SetLeft:Button({
+            Name = "Refresh Configs",
+            Callback = function()
+                if cfgDropdown and cfgDropdown.Refresh then
+                    cfgDropdown:Refresh(getConfigs())
+                end
+            end
+        })
+
         SetRight:Keybind({
             Name = "Menu Keybind",
             Flag = "MenuToggleKey",
