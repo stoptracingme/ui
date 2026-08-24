@@ -244,10 +244,10 @@ local Library do
             ["Outline"] = FromRGB(35, 35, 35),
             ["Element"] = FromRGB(20, 20, 20),
             ["Gradient"] = FromRGB(255, 255, 255),
-            ["Text"] = FromRGB(220, 220, 220),
+            ["Text"] = FromRGB(240, 240, 240),
             ["Text Stroke"] = FromRGB(0, 0, 0),
             ["Placeholder Text"] = FromRGB(110, 110, 110),
-            ["Accent"] = FromRGB(255, 215, 0)
+            ["Accent"] = FromRGB(255, 255, 255)
         }
     }
 
@@ -5916,10 +5916,185 @@ local Library do
             end
         end)
 
-
-
         Window:SetOpen(true)
         return setmetatable(Window, self)
+    end
+
+    local _libraryBlur = nil
+    Library.ToggleBlur = function(self, state)
+        pcall(function()
+            local Lighting = game:GetService("Lighting")
+            if state then
+                if not _libraryBlur or not _libraryBlur.Parent then
+                    _libraryBlur = Lighting:FindFirstChild("_alternateBlur")
+                    if not _libraryBlur then
+                        _libraryBlur = Instance.new("BlurEffect")
+                        _libraryBlur.Name = "_alternateBlur"
+                        _libraryBlur.Size = 16
+                        _libraryBlur.Parent = Lighting
+                    end
+                end
+            else
+                _libraryBlur = _libraryBlur or Lighting:FindFirstChild("_alternateBlur")
+                if _libraryBlur then
+                    _libraryBlur:Destroy()
+                    _libraryBlur = nil
+                end
+            end
+        end)
+    end
+
+    Library.InitSettings = function(self, Window, SettingsPage)
+        if not Window or not SettingsPage then return end
+        local SetLeft = SettingsPage:Section({ Name = "Configs", Side = 1 })
+        local SetRight = SettingsPage:Section({ Name = "Settings", Side = 2 })
+        local ThemeSec = SettingsPage:Section({ Name = "Theme", Side = 2 })
+
+        local dir = "alternate/configs"
+        pcall(function()
+            if not isfolder("alternate") then makefolder("alternate") end
+            if not isfolder(dir) then makefolder(dir) end
+        end)
+
+        local function getConfigs()
+            local list = {}
+            pcall(function()
+                if listfiles then
+                    for _, file in ipairs(listfiles(dir)) do
+                        local name = file:match("([^/\\]+)%.cfg$") or file:match("([^/\\]+)%.json$")
+                        if name then table.insert(list, name) end
+                    end
+                end
+            end)
+            if #list == 0 then table.insert(list, "default") end
+            return list
+        end
+
+        local cfgDropdown
+        cfgDropdown = SetLeft:Dropdown({
+            Name = "Config List",
+            Flag = "SelectedConfig",
+            Items = getConfigs(),
+            Default = "default"
+        })
+
+        SetLeft:Textbox({
+            Name = "Config Name",
+            Flag = "ConfigNameInput",
+            Placeholder = "Enter name..."
+        })
+
+        SetLeft:Button({
+            Name = "Save Config",
+            Callback = function()
+                local name = Library.Flags["ConfigNameInput"] or Library.Flags["SelectedConfig"] or "default"
+                if name and name ~= "" then
+                    pcall(function()
+                        if Library.SaveConfig then Library:SaveConfig(name) end
+                        Library:Notify("Saved config: " .. tostring(name), 3)
+                        if cfgDropdown and cfgDropdown.SetValues then
+                            cfgDropdown:SetValues(getConfigs())
+                        end
+                    end)
+                end
+            end
+        })
+
+        SetLeft:Button({
+            Name = "Load Config",
+            Callback = function()
+                local name = Library.Flags["SelectedConfig"] or "default"
+                pcall(function()
+                    if Library.LoadConfig then Library:LoadConfig(name) end
+                    Library:Notify("Loaded config: " .. tostring(name), 3)
+                end)
+            end
+        })
+
+        SetLeft:Button({
+            Name = "Delete Config",
+            Callback = function()
+                local name = Library.Flags["SelectedConfig"]
+                if name and name ~= "" and delfile then
+                    pcall(function()
+                        delfile(dir .. "/" .. name .. ".cfg")
+                        Library:Notify("Deleted config: " .. tostring(name), 3)
+                        if cfgDropdown and cfgDropdown.SetValues then
+                            cfgDropdown:SetValues(getConfigs())
+                        end
+                    end)
+                end
+            end
+        })
+
+        SetRight:Keybind({
+            Name = "Menu Keybind",
+            Flag = "MenuToggleKey",
+            Default = Enum.KeyCode.Z,
+            Mode = "Toggle",
+            Callback = function(key)
+                if key then Library.MenuKeybind = key end
+            end
+        })
+
+        SetRight:Toggle({
+            Name = "Watermark",
+            Flag = "ToggleWatermark",
+            Default = true,
+            Callback = function(v)
+                if Library.WatermarkObj and Library.WatermarkObj.SetVisibility then
+                    Library.WatermarkObj:SetVisibility(v)
+                end
+            end
+        })
+
+        SetRight:Toggle({
+            Name = "Keybind List",
+            Flag = "ToggleKeybindList",
+            Default = true,
+            Callback = function(v)
+                if Library.KeyList and Library.KeyList.SetVisibility then
+                    Library.KeyList:SetVisibility(v)
+                end
+            end
+        })
+
+        SetRight:Button({
+            Name = "Unload",
+            Callback = function()
+                Library:Unload()
+            end
+        })
+
+        local BuiltInThemesList = {"Preset", "ice", "valedo", "classic", "sunset", "moonshine", "ermoa", "blood"}
+        ThemeSec:Dropdown({
+            Name = "UI Theme",
+            Flag = "UIThemeChoice",
+            Items = BuiltInThemesList,
+            Default = "Preset",
+            Callback = function(v)
+                if Library.ApplyThemeByName then
+                    Library:ApplyThemeByName(v)
+                end
+            end
+        })
+
+        ThemeSec:Toggle({
+            Name = "Background Blur",
+            Flag = "UIBackgroundBlur",
+            Default = false,
+            Callback = function(v)
+                Library:ToggleBlur(v and Window.IsOpen)
+            end
+        })
+
+        if Window.OnToggle then
+            Window.OnToggle:Connect(function()
+                if Library.Flags["UIBackgroundBlur"] then
+                    Library:ToggleBlur(Window.IsOpen)
+                end
+            end)
+        end
     end
 
     Library.Page = function(self, Data)
