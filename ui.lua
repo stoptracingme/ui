@@ -1586,7 +1586,9 @@ local Library do
     
     
     Library.SetMenuKeybind = function(self, Key)
-        Library.MenuKeybind = tostring(Key)
+        if Key ~= nil then
+            Library.MenuKeybind = tostring(Key)
+        end
     end
 
     
@@ -6160,9 +6162,7 @@ local Library do
             Flag = "MenuToggleKey",
             Default = Enum.KeyCode.Z,
             Mode = "Toggle",
-            Callback = function(key)
-                if key then Library.MenuKeybind = key end
-            end
+            Callback = function() end
         })
 
         SetRight:Toggle({
@@ -6899,6 +6899,7 @@ local Library do
             Flag = Keybind.Flag,
             Default = Keybind.Default,
             Mode = Keybind.Mode,
+            IsMenuKey = Data.Flag == "MenuToggleKey",
             Callback = Keybind.Callback
         })
         
