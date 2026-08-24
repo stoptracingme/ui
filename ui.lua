@@ -6124,6 +6124,9 @@ local Library do
                         Library:Notify("Saved config: " .. tostring(name), 3)
                         if cfgDropdown and cfgDropdown.Refresh then
                             cfgDropdown:Refresh(getConfigs())
+                            if cfgDropdown.Set then
+                                cfgDropdown:Set(name)
+                            end
                         end
                     end)
                 end
