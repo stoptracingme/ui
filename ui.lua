@@ -6404,13 +6404,16 @@ local Library do
         }
 
         if type(Section.Side) == "string" then
-            Section.Side = Section.Side == "Left" and 1 or 2
+            Section.Side = (Section.Side == "Left" or Section.Side == "left") and 1 or 2
+        elseif type(Section.Side) ~= "number" then
+            Section.Side = 1
         end
 
         local Items = { } do
             local sectionParent
-            if Section.Page.ColumnsData and Section.Page.ColumnsData[Section.Side] and Section.Page.ColumnsData[Section.Side].Instance then
-                sectionParent = Section.Page.ColumnsData[Section.Side].Instance
+            if Section.Page.ColumnsData and Section.Page.ColumnsData[Section.Side] then
+                local col = Section.Page.ColumnsData[Section.Side]
+                sectionParent = col.Instance or col
             elseif Section.Page.Items and Section.Page.Items["Columns"] and Section.Page.Items["Columns"].Instance then
                 sectionParent = Section.Page.Items["Columns"].Instance
             elseif Section.Page.Items and Section.Page.Items["Page"] and Section.Page.Items["Page"].Instance then
