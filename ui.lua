@@ -248,10 +248,129 @@ local Library do
             ["Text Stroke"] = FromRGB(0, 0, 0),
             ["Placeholder Text"] = FromRGB(110, 110, 110),
             ["Accent"] = FromRGB(255, 255, 255)
+        },
+        ["ice"] = {
+            ["Background"] = FromRGB(10, 14, 18),
+            ["Border"] = FromRGB(20, 28, 38),
+            ["Inline"] = FromRGB(14, 20, 28),
+            ["Hovered Element"] = FromRGB(30, 45, 60),
+            ["Page Background"] = FromRGB(8, 12, 16),
+            ["Outline"] = FromRGB(30, 42, 58),
+            ["Element"] = FromRGB(16, 24, 34),
+            ["Gradient"] = FromRGB(130, 200, 255),
+            ["Text"] = FromRGB(220, 240, 255),
+            ["Text Stroke"] = FromRGB(0, 0, 0),
+            ["Placeholder Text"] = FromRGB(90, 120, 150),
+            ["Accent"] = FromRGB(100, 185, 255)
+        },
+        ["valedo"] = {
+            ["Background"] = FromRGB(14, 12, 18),
+            ["Border"] = FromRGB(28, 22, 38),
+            ["Inline"] = FromRGB(20, 16, 28),
+            ["Hovered Element"] = FromRGB(42, 32, 60),
+            ["Page Background"] = FromRGB(10, 8, 14),
+            ["Outline"] = FromRGB(40, 30, 56),
+            ["Element"] = FromRGB(22, 18, 32),
+            ["Gradient"] = FromRGB(180, 130, 255),
+            ["Text"] = FromRGB(235, 225, 250),
+            ["Text Stroke"] = FromRGB(0, 0, 0),
+            ["Placeholder Text"] = FromRGB(120, 100, 150),
+            ["Accent"] = FromRGB(160, 110, 245)
+        },
+        ["classic"] = {
+            ["Background"] = FromRGB(18, 18, 18),
+            ["Border"] = FromRGB(30, 30, 30),
+            ["Inline"] = FromRGB(22, 22, 22),
+            ["Hovered Element"] = FromRGB(40, 40, 40),
+            ["Page Background"] = FromRGB(14, 14, 14),
+            ["Outline"] = FromRGB(38, 38, 38),
+            ["Element"] = FromRGB(24, 24, 24),
+            ["Gradient"] = FromRGB(210, 180, 80),
+            ["Text"] = FromRGB(235, 235, 235),
+            ["Text Stroke"] = FromRGB(0, 0, 0),
+            ["Placeholder Text"] = FromRGB(120, 120, 120),
+            ["Accent"] = FromRGB(210, 180, 80)
+        },
+        ["sunset"] = {
+            ["Background"] = FromRGB(16, 12, 12),
+            ["Border"] = FromRGB(32, 20, 20),
+            ["Inline"] = FromRGB(22, 15, 15),
+            ["Hovered Element"] = FromRGB(48, 28, 28),
+            ["Page Background"] = FromRGB(12, 8, 8),
+            ["Outline"] = FromRGB(44, 26, 26),
+            ["Element"] = FromRGB(26, 18, 18),
+            ["Gradient"] = FromRGB(255, 140, 70),
+            ["Text"] = FromRGB(250, 230, 220),
+            ["Text Stroke"] = FromRGB(0, 0, 0),
+            ["Placeholder Text"] = FromRGB(150, 100, 90),
+            ["Accent"] = FromRGB(255, 110, 60)
+        },
+        ["moonshine"] = {
+            ["Background"] = FromRGB(12, 16, 14),
+            ["Border"] = FromRGB(22, 32, 28),
+            ["Inline"] = FromRGB(16, 24, 20),
+            ["Hovered Element"] = FromRGB(32, 50, 42),
+            ["Page Background"] = FromRGB(8, 12, 10),
+            ["Outline"] = FromRGB(30, 46, 38),
+            ["Element"] = FromRGB(18, 28, 24),
+            ["Gradient"] = FromRGB(120, 230, 180),
+            ["Text"] = FromRGB(220, 245, 235),
+            ["Text Stroke"] = FromRGB(0, 0, 0),
+            ["Placeholder Text"] = FromRGB(90, 140, 120),
+            ["Accent"] = FromRGB(90, 215, 160)
+        },
+        ["ermoa"] = {
+            ["Background"] = FromRGB(16, 14, 10),
+            ["Border"] = FromRGB(34, 28, 18),
+            ["Inline"] = FromRGB(22, 19, 14),
+            ["Hovered Element"] = FromRGB(48, 40, 26),
+            ["Page Background"] = FromRGB(12, 10, 8),
+            ["Outline"] = FromRGB(44, 36, 22),
+            ["Element"] = FromRGB(26, 22, 16),
+            ["Gradient"] = FromRGB(230, 190, 110),
+            ["Text"] = FromRGB(245, 240, 225),
+            ["Text Stroke"] = FromRGB(0, 0, 0),
+            ["Placeholder Text"] = FromRGB(140, 125, 95),
+            ["Accent"] = FromRGB(220, 175, 85)
+        },
+        ["blood"] = {
+            ["Background"] = FromRGB(16, 10, 10),
+            ["Border"] = FromRGB(36, 16, 16),
+            ["Inline"] = FromRGB(24, 12, 12),
+            ["Hovered Element"] = FromRGB(52, 20, 20),
+            ["Page Background"] = FromRGB(12, 6, 6),
+            ["Outline"] = FromRGB(46, 18, 18),
+            ["Element"] = FromRGB(28, 14, 14),
+            ["Gradient"] = FromRGB(245, 70, 70),
+            ["Text"] = FromRGB(250, 225, 225),
+            ["Text Stroke"] = FromRGB(0, 0, 0),
+            ["Placeholder Text"] = FromRGB(150, 80, 80),
+            ["Accent"] = FromRGB(230, 45, 45)
         }
     }
 
+    Library.Themes = Themes
     Library.Theme = TableClone(Themes["Preset"])
+
+    Library.ApplyThemeByName = function(self, themeName)
+        local target = Themes[themeName] or Themes["Preset"]
+        if not target then return end
+        for k, v in pairs(target) do
+            Library.Theme[k] = v
+        end
+        if Library.ThemeMap then
+            for item, props in pairs(Library.ThemeMap) do
+                pcall(function()
+                    local inst = item.Instance or item
+                    for propName, themeKey in pairs(props) do
+                        if Library.Theme[themeKey] and inst then
+                            inst[propName] = Library.Theme[themeKey]
+                        end
+                    end
+                end)
+            end
+        end
+    end
 
     
     for Index, Value in Library.Folders do 
@@ -414,6 +533,45 @@ local Library do
                     end
                 else
                     NewTween = Tween:FadeItem(Value, TransparencyProperty, not Visibility, Speed)
+                end
+            end
+        end
+
+        Library.AddToTheme = function(self, Item, Properties)
+            if not Item then return end
+            Library.ThemeMap[Item] = Properties
+            local inst = Item.Instance or Item
+            for propName, themeKey in pairs(Properties) do
+                if Library.Theme[themeKey] and inst then
+                    pcall(function() inst[propName] = Library.Theme[themeKey] end)
+                end
+            end
+        end
+
+        Library.ChangeItemTheme = function(self, Item, Properties)
+            if not Item then return end
+            Library.ThemeMap[Item] = Properties
+            local inst = Item.Instance or Item
+            for propName, themeKey in pairs(Properties) do
+                if Library.Theme[themeKey] and inst then
+                    pcall(function() inst[propName] = Library.Theme[themeKey] end)
+                end
+            end
+        end
+
+        Library.ChangeTheme = function(self, ThemeKey, ColorValue)
+            if not ThemeKey or not ColorValue then return end
+            Library.Theme[ThemeKey] = ColorValue
+            if Library.ThemeMap then
+                for item, props in pairs(Library.ThemeMap) do
+                    pcall(function()
+                        local inst = item.Instance or item
+                        for propName, tKey in pairs(props) do
+                            if tKey == ThemeKey and inst then
+                                inst[propName] = ColorValue
+                            end
+                        end
+                    end)
                 end
             end
         end
